@@ -10,6 +10,7 @@
 
 @interface AVRAnimatedTableViewCell : UITableViewCell
 
-- (void)animateCell;
+@property (strong, nonatomic) IBOutlet UIImageView *loadingImageView;
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end

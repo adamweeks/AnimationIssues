@@ -8,6 +8,9 @@
 
 #import "AVRAnimatedTableViewController.h"
 #import "AVRAnimatedTableViewCell.h"
+@import QuartzCore;
+
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 @interface AVRAnimatedTableViewController ()
 
@@ -27,31 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 30;
 }
 
@@ -59,60 +48,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AVRAnimatedTableViewCell *cell = (AVRAnimatedTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"animatedCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    [cell animateCell];
-    
+    cell.label.text = [NSString stringWithFormat:@"%d",indexPath.row];
+  
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+  AVRAnimatedTableViewCell *aCell = (AVRAnimatedTableViewCell *)cell;
+  NSLog(@"will display cell %d",indexPath.row);
+  if(aCell.layer.animationKeys.count > 0) {
+    [aCell.loadingImageView.layer removeAllAnimations];
+  }
+  [UIView animateWithDuration:0.75 delay:1.0 options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear | UIViewAnimationOptionRepeat) animations:^{
+    NSLog(@"in here %d",indexPath.row);
+    aCell.loadingImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90));
+    NSLog(@"%d keys %@",indexPath.row,aCell.loadingImageView.layer.animationKeys);
+  } completion:^(BOOL finished) {
+  }];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+  NSLog(@"end display cell  %d",indexPath.row);
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

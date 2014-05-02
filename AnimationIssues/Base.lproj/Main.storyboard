@@ -108,13 +108,21 @@
                                                     <rect key="frame" x="123" y="123" width="54" height="54"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UA-bx-qdJ">
+                                                    <rect key="frame" x="60" y="53" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.92549026010000002" green="0.80000007149999997" blue="0.1764705926" alpha="1" colorSpace="deviceRGB"/>
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="loadingImageView" destination="Uc9-NM-ui0" id="Vsx-uJ-7j7"/>
+                                    <outlet property="label" destination="7UA-bx-qdJ" id="Pmf-8m-McT"/>
+                                    <outlet property="loadingImageView" destination="Uc9-NM-ui0" id="7E5-Dt-RC7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

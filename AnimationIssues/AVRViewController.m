@@ -41,10 +41,10 @@
 
 - (void)animateImageView
 {
-    [UIView animateWithDuration:0.75 delay:0.0 options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionRepeat) animations:^{
-        self.loadingImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(89.9));
+    [UIView animateWithDuration:1.25 delay:0.0 options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse) animations:^{
+        self.loadingImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(179));
     } completion:^(BOOL finished) {
-        
+        NSLog(@"complete");
     }];
 }
 
