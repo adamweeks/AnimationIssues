@@ -21,6 +21,8 @@
 		BE0D931119140947008C589E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE0D92F319140947008C589E /* UIKit.framework */; };
 		BE0D931919140947008C589E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE0D931719140947008C589E /* InfoPlist.strings */; };
 		BE0D931B19140947008C589E /* AnimationIssuesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D931A19140947008C589E /* AnimationIssuesTests.m */; };
+		BE0D9326191413D6008C589E /* AVRAnimatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D9325191413D6008C589E /* AVRAnimatedTableViewController.m */; };
+		BE0D9329191413E9008C589E /* AVRAnimatedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D9328191413E9008C589E /* AVRAnimatedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		BE0D931619140947008C589E /* AnimationIssuesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimationIssuesTests-Info.plist"; sourceTree = "<group>"; };
 		BE0D931819140947008C589E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE0D931A19140947008C589E /* AnimationIssuesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationIssuesTests.m; sourceTree = "<group>"; };
+		BE0D9324191413D6008C589E /* AVRAnimatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRAnimatedTableViewController.h; sourceTree = "<group>"; };
+		BE0D9325191413D6008C589E /* AVRAnimatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVRAnimatedTableViewController.m; sourceTree = "<group>"; };
+		BE0D9327191413E9008C589E /* AVRAnimatedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRAnimatedTableViewCell.h; sourceTree = "<group>"; };
+		BE0D9328191413E9008C589E /* AVRAnimatedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVRAnimatedTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				BE0D930519140947008C589E /* AVRViewController.m */,
 				BE0D930719140947008C589E /* Images.xcassets */,
 				BE0D92F619140947008C589E /* Supporting Files */,
+				BE0D9324191413D6008C589E /* AVRAnimatedTableViewController.h */,
+				BE0D9325191413D6008C589E /* AVRAnimatedTableViewController.m */,
+				BE0D9327191413E9008C589E /* AVRAnimatedTableViewCell.h */,
+				BE0D9328191413E9008C589E /* AVRAnimatedTableViewCell.m */,
 			);
 			path = AnimationIssues;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0D9329191413E9008C589E /* AVRAnimatedTableViewCell.m in Sources */,
+				BE0D9326191413D6008C589E /* AVRAnimatedTableViewController.m in Sources */,
 				BE0D930019140947008C589E /* AVRAppDelegate.m in Sources */,
 				BE0D930619140947008C589E /* AVRViewController.m in Sources */,
 				BE0D92FC19140947008C589E /* main.m in Sources */,

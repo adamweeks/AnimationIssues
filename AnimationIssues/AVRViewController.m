@@ -8,7 +8,11 @@
 
 #import "AVRViewController.h"
 
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
 @interface AVRViewController ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *loadingImageView;
 
 @end
 
@@ -20,10 +24,28 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //Spin
+    [self animateImageView];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)animateImageView
+{
+    [UIView animateWithDuration:0.75 delay:0.0 options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionRepeat) animations:^{
+        self.loadingImageView.transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(89.9));
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end
